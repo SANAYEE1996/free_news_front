@@ -31,6 +31,11 @@ function App() {
 
   return (
     <>
+      <div>
+        <form action="" method="post">
+          
+        </form>
+      </div>
       <h1>news list</h1>
       {
         news.map((tag) => {
