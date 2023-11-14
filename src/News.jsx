@@ -19,11 +19,12 @@ function News() {
           "searchWord" : ""
         })
         .then((res) => {
+          console.log(res);
           if(res.status == 200){
             console.log(res.data);
             setNews(res.data.body.data);
           }
-          else if(res.status == 404){
+          else if(res.status == 403){
             window.location.href = "/login";
           }
           else{
@@ -47,8 +48,8 @@ function News() {
         <Paper style={{margin: 16}}>
         {
           news.map((tag) => {
-            return <List>
-                    <div key={tag.id}>
+            return <List key={tag.id}>
+                    <div >
                       <div>제목 : {tag.title} // 작성일 : {tag.registerDate}</div>
                       <div>내용 : {tag.text}</div>
                    </div>
