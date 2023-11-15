@@ -22,8 +22,8 @@ export async function call(api, method, request){
         options.body = JSON.stringify(request);
     }
 
-    console.log("NEWS_URL" + NEWS_URL);
-    console.log("optoins : " +options.headers.get("Authorization"));
+    console.log("NEWS_URL : " + NEWS_URL);
+    console.log("Authorization : " +options.headers.get("Authorization"));
 
     return await fetch(options.url, options).then((res) => {
         if(res.status === 200){
@@ -46,6 +46,7 @@ export async function signin(loginDto){
                 console.log("access token : " + res.body.data.accessToken);
                 if(res.body.data.accessToken){
                     localStorage.setItem("ACCESS_TOKEN", res.body.data.accessToken);
+                    localStorage.setItem("NEWS_MEMBER_ID", res.body.data.memberId);
                     window.location.href = "/";
                 }
             });
@@ -53,5 +54,23 @@ export async function signin(loginDto){
 
 export async function signout(){
     localStorage.removeItem("ACCESS_TOKEN");
+    localStorage.removeItem("NEWS_MEMBER_ID");
     window.location.href = "/login";
+}
+
+export async function writeNews(newsDto){
+    console.log("newsDto : " +newsDto.memberId);
+    console.log("text : "+newsDto.text);
+    console.log("title : "+newsDto.title);
+    return call("/news/save", "POST", newsDto)
+            .then((res) => {
+                let code = res.code;
+                if(code == null){
+                    alert('기사 작성 성공 ! ');
+                    window.location.href = "/";
+                }
+                else{
+                    
+                }
+            });
 }
