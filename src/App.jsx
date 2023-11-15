@@ -24,7 +24,7 @@ function App() {
   let addNewsButton = (
     <Grid container style={{marginTop: 20}}>
             <Grid xs={1} md= {1} item>
-                <Button fullWidth style={{height: '100%'}} color="secondary">기사쓰기</Button>
+                <a href='/write/news'>기사 작성</a>
             </Grid>
     </Grid>
   );
