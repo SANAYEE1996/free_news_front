@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { List, Paper } from "@mui/material";
+import { NEWS_URL } from "./config/api-config";
 import axios from "axios";
 
 function News() {
 
-    const baseUrl = "http://localhost:8000";
     const [news, setNews] = useState([]);
   
     useEffect(() => {
@@ -13,24 +13,14 @@ function News() {
   
     async function getNews() {
       await axios // 다 받을 때까지 기다리는 것
-        .post(baseUrl + "/news/list",{
+        .post(NEWS_URL + "/news/list",{
           "id" : 0,
           "pageNumber" : 0,
           "searchWord" : ""
         })
         .then((res) => {
-          console.log(res);
-          if(res.status == 200){
-            console.log(res.data);
-            setNews(res.data.body.data);
-          }
-          else if(res.status == 403){
-            window.location.href = "/login";
-          }
-          else{
-            Promise.reject(res);
-            throw Error(res);
-          }
+          console.log(res.data);
+          setNews(res.data.body.data);
         })
         .catch((err) => {
           console.log(err);
