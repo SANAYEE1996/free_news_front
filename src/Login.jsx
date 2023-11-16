@@ -18,6 +18,7 @@ function Login(){
                     <Typography component="h1" variant="h5">로그인</Typography>
                 </Grid>
             </Grid>
+            <button className='btn btn-danger' onClick={ () => {location.href="/"}}>뒤로가기</button>
             <form noValidate onSubmit={handleSubmit}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>

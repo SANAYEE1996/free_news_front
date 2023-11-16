@@ -40,8 +40,7 @@ function News() {
           news.map((tag) => {
             return <List key={tag.id}>
                     <div >
-                      <div>제목 : {tag.title} // 작성일 : {tag.registerDate}</div>
-                      <div>내용 : {tag.text}</div>
+                      <a href={"news/page?newsId="+tag.id}>제목 : {tag.title} // 작성일 : {tag.registerDate}</a>
                    </div>
                    </List>
           })
