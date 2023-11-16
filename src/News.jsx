@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { List, Paper } from "@mui/material";
 import { NEWS_URL } from "./config/api-config";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function News() {
 
@@ -40,7 +41,9 @@ function News() {
           news.map((tag) => {
             return <List key={tag.id}>
                     <div >
-                      <a href={"news/page?newsId="+tag.id}>제목 : {tag.title} // 작성일 : {tag.registerDate}</a>
+                      <Link to={`news/page/${tag.id}`}>
+                        제목 : {tag.title} // 작성일 : {tag.registerDate}
+                      </Link>
                    </div>
                    </List>
           })

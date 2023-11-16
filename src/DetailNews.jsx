@@ -1,26 +1,38 @@
-import React from "react";
-import { useSearchParams } from "react-router-dom";
-import queryString from "query-string";
+import React,{ useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { call } from "./service/ApiService";
 
 const DetailNews = () => {
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    let {id} = useParams();
 
-    const setSortParams = () => {
-        searchParams.set('sort', 'clear');
-        setSearchParams(searchParams);
-    };
+    const [news, setNews] = useState({"id": "1"});
 
-    const appendSortParams = () => {
-        searchParams.append('sort', 'hello-world');
-        setSearchParams(searchParams);
-    };
+    useEffect(() => {
+        getNews();
+      }, []);
+    async function getNews() {
+        await call("/news/detail", "POST", {id: {id}.id})
+          .then((res) => {
+            console.log(res.body.data);
+            setNews(res.body.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    }
 
-    return (
+    return  (
         <>
-            <div>뉴스 디테일 페이지 // 뉴스 아이디 : {}</div>
+            <div key={news.id}>
+            <button className='btn btn-danger' onClick={ () => {location.href="/"}}>뒤로가기</button>
+                <div>뉴스 상세 페이지</div>
+                <div>{news.title}</div>
+                <div>{news.text}</div>
+                <div>{news.registerDate}</div>
+            </div>
         </>
-    );
+    )
 }
 
 export default DetailNews;

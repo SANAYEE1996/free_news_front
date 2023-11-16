@@ -1,5 +1,4 @@
 import { NEWS_URL } from "../config/api-config";
-import axios from "axios";
 
 export async function call(api, method, request){
     let headers = new Headers({

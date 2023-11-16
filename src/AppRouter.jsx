@@ -25,7 +25,7 @@ function AppRouter(){
                     <Route path="/" element={<App />} />
                     <Route path="login" element={<Login />} />
                     <Route path="write/news" element={<AddNews />} />
-                    <Route path="news/page" element={<DetailNews />} ></Route>
+                    <Route path="news/page/:id" element={<DetailNews />} ></Route>
                 </Routes>
             </BrowserRouter>
             <Box mt={5}>
