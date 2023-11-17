@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { List, Paper } from "@mui/material";
 import { NEWS_URL } from "./config/api-config";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function News() {
 
@@ -19,7 +20,6 @@ function News() {
           "searchWord" : ""
         })
         .then((res) => {
-          console.log(res.data);
           setNews(res.data.body.data);
         })
         .catch((err) => {
@@ -40,8 +40,9 @@ function News() {
           news.map((tag) => {
             return <List key={tag.id}>
                     <div >
-                      <div>제목 : {tag.title} // 작성일 : {tag.registerDate}</div>
-                      <div>내용 : {tag.text}</div>
+                      <Link to={`news/page/${tag.id}`}>
+                        제목 : {tag.title} // 작성일 : {tag.registerDate}
+                      </Link>
                    </div>
                    </List>
           })

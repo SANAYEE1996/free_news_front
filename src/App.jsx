@@ -2,6 +2,7 @@ import News from './News';
 import './App.css'
 import { Container, Grid, Button, AppBar, Toolbar, Typography, } from '@mui/material';
 import { signout} from './service/ApiService'
+import { Link } from "react-router-dom";
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
           </Grid>
         </Grid>
         <Grid item>
-          {localStorage.getItem("ACCESS_TOKEN") ? <Button color='inherit' onClick={signout}>LogOut</Button> : <a style={{color: 'white'}} href='/login'>Login</a> }
+          {localStorage.getItem("ACCESS_TOKEN") ? <Button color='inherit' onClick={signout}>LogOut</Button> : <Link style={{color: 'white'}} to='/login'>Login</Link> }
           
         </Grid>
       </Toolbar>
@@ -24,7 +25,7 @@ function App() {
   let addNewsButton = (
     <Grid container style={{marginTop: 20}}>
             <Grid xs={1} md= {1} item>
-                <a href='/write/news'>기사 작성</a>
+                <Link to='/write/news'>기사 작성</Link>
             </Grid>
     </Grid>
   );
