@@ -8,10 +8,6 @@ function AddNews(){
     const saveNews = (event) => {
         event.preventDefault();
         const data = new FormData(event.target);
-        
-        console.log("data : " +data);
-        console.log("");
-        console.log("");
         writeNews({ id: null
                     ,memberId : localStorage.getItem("NEWS_MEMBER_ID")
                     ,title: data.get("title")

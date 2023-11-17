@@ -20,7 +20,6 @@ function News() {
           "searchWord" : ""
         })
         .then((res) => {
-          console.log(res.data);
           setNews(res.data.body.data);
         })
         .catch((err) => {

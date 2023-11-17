@@ -4,6 +4,7 @@ import App from "./App";
 import Login from "./Login";
 import AddNews from "./AddNews";
 import DetailNews from "./DetailNews";
+import UpdateNews from "./UpdateNews";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Typography, Box} from "@mui/material";
 
@@ -26,6 +27,7 @@ function AppRouter(){
                     <Route path="login" element={<Login />} />
                     <Route path="write/news" element={<AddNews />} />
                     <Route path="news/page/:id" element={<DetailNews />} ></Route>
+                    <Route path="news/update/:id" element={<UpdateNews />} ></Route>
                 </Routes>
             </BrowserRouter>
             <Box mt={5}>
