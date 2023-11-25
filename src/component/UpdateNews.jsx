@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from "react";
 import { Container, Grid, Typography} from '@mui/material';
 import { useParams } from "react-router-dom";
-import { call, updateNews } from "./service/ApiService";
+import { call, updateNews } from "../service/ApiService";
 
 
 function UpdateNews(){

@@ -1,8 +1,9 @@
-import News from './News';
+import News from './component/News';
 import './App.css'
 import { Container, Grid, Button, AppBar, Toolbar, Typography, } from '@mui/material';
 import { signout} from './service/ApiService'
 import { Link } from "react-router-dom";
+import Paint from './component/Paint';
 
 function App() {
 
@@ -34,6 +35,15 @@ function App() {
     <>
       {navigationBar}
       {localStorage.getItem("ACCESS_TOKEN") ? addNewsButton : ""}
+      
+      <button type="button" class="btn btn-primary">
+        Add Tag
+      </button>
+      &nbsp;
+      <button type="button" class="btn btn-warning">
+        Link Tag
+      </button>
+      <Paint name="박영상" email="dudtkd0219@gmail.com" />
       <Container maxWidth="md">
         <News />
       </Container>

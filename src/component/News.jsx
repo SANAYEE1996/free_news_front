@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { List, Paper } from "@mui/material";
-import { NEWS_URL } from "./config/api-config";
+import { NEWS_URL } from "../config/api-config";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -36,17 +36,22 @@ function News() {
         </div>
         <h1>news list</h1>
         <Paper style={{margin: 16}}>
-        {
-          news.map((tag) => {
-            return <List key={tag.id}>
-                    <div >
-                      <Link to={`news/page/${tag.id}`}>
-                        제목 : {tag.title} // 작성일 : {tag.registerDate}
-                      </Link>
-                   </div>
-                   </List>
-          })
-        }
+        <table className="table table-striped table-bordered text-center">
+          <thead>
+            <th>제목</th>
+            <th>작성일</th>
+          </thead>
+          <tbody>
+          {
+            news.map((tag) => {
+              return <tr key={tag.id}>
+                      <td ><Link to={`news/page/${tag.id}`}>{tag.title}</Link></td>
+                      <td>{tag.registerDate}</td>
+                    </tr>
+            })
+          }
+          </tbody>
+        </table>
         </Paper>
       </>
     )

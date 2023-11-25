@@ -1,8 +1,8 @@
 import React,{ useState, useEffect } from "react";
 import { Button} from '@mui/material';
 import { Link, useParams } from "react-router-dom";
-import { call } from "./service/ApiService";
-import { deleteNews } from "./service/ApiService";
+import { call } from "../service/ApiService";
+import { deleteNews } from "../service/ApiService";
 
 const DetailNews = () => {
 

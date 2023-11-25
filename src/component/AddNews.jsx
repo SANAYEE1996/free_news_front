@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Grid, Button, Typography, TextField} from '@mui/material';
-import { writeNews } from "./service/ApiService";
+import { writeNews } from "../service/ApiService";
 
 
 function AddNews(){

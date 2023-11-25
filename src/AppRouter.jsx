@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.css";
 import App from "./App";
-import Login from "./Login";
-import AddNews from "./AddNews";
-import DetailNews from "./DetailNews";
-import UpdateNews from "./UpdateNews";
+import Login from "./component/Login";
+import AddNews from "./component/AddNews";
+import DetailNews from "./component/DetailNews";
+import UpdateNews from "./component/UpdateNews";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Typography, Box} from "@mui/material";
 
