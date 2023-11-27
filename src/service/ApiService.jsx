@@ -96,3 +96,9 @@ export async function updateNews(newsDto){
                 }
             });
 }
+
+export async function getDetailNews(newsId){
+    return call("/news/detail", "POST", {id: newsId}).then((res) => {
+        return res.body;
+    });
+}

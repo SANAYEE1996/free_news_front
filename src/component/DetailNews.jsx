@@ -1,27 +1,18 @@
-import React,{ useState, useEffect } from "react";
+import React from "react";
 import { Button} from '@mui/material';
-import { Link, useParams } from "react-router-dom";
-import { call } from "../service/ApiService";
-import { deleteNews } from "../service/ApiService";
+import { useParams } from "react-router-dom";
+import { deleteNews, getDetailNews } from "../service/ApiService";
 
 const DetailNews = () => {
 
     let {id} = useParams();
 
-    const [news, setNews] = useState({"id": "1"});
+    const news = getDetailNews({id}.id);
 
-    useEffect(() => {
-        getNews();
-      }, []);
-    async function getNews() {
-        await call("/news/detail", "POST", {id: {id}.id})
-          .then((res) => {
-            setNews(res.body.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-    }
+    console.log("res : " +news.data);
+    console.log("res : " +news);
+    console.log("res : " +news);
+    console.log("res : " +news);
 
     let requestDto = {"id" : {id}.id};
 
